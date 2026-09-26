@@ -2,29 +2,383 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bloom · Gym Workouts for Women</title>
-<meta name="description" content="Bloom makes your gym plan for you. It picks your exercises, your starting weights and your swaps, so you can walk in knowing exactly what to do.">
-<link rel="icon" href="icon.png">
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bloom · Gym Workout Plans for Women</title>
+<meta name="description" content="The gym app made for women. It plans around your life, your energy and your period, then coaches you through every set.">
+<link rel="canonical" href="https://womensgym.github.io/bloom-site/">
+<meta name="theme-color" content="#FFFBF8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bloom">
+<meta property="og:url" content="https://womensgym.github.io/bloom-site/">
+<meta property="og:title" content="Bloom · Your plan should adapt to you">
+<meta property="og:description" content="The gym app made for women. It plans around your life, your energy and your period, then coaches you through every set.">
+<meta property="og:image" content="https://womensgym.github.io/bloom-site/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bloom. Your plan should adapt to you. Not the other way around.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bloom · Your plan should adapt to you">
+<meta name="twitter:description" content="The gym app made for women. It plans around your life, your energy and your period, then coaches you through every set.">
+<meta name="twitter:image" content="https://womensgym.github.io/bloom-site/og.jpg">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="icon.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400..800&family=Young+Serif&display=swap">
+<link rel="stylesheet" href="site.css">
+<script>
+  // Motion is opt-out: reduced-motion users, or a CDN that never arrives, get the static page.
+  (function (d) {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    d.documentElement.classList.add("motion");
+    setTimeout(function () { if (!window.bloomReady) d.documentElement.classList.remove("motion"); }, 3500);
+  })(document);
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script defer src="main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MobileApplication","name":"Bloom","operatingSystem":"iOS, Android","applicationCategory":"HealthApplication","description":"The gym app made for women. It plans around your life, your energy and your period, then coaches you through every set.","url":"https://womensgym.github.io/bloom-site/","offers":[{"@type":"Offer","price":"59.99","priceCurrency":"USD","description":"Yearly, with a 7-day free trial"},{"@type":"Offer","price":"12.99","priceCurrency":"USD","description":"Monthly"}]}
+</script>
 </head>
 <body>
-<img class="mark" src="icon.png" alt="Bloom app icon" width="88" height="88">
-<h1>Bloom</h1>
-<p class="sub">Gym workout plans for women. Walk in knowing exactly what to do.</p>
+<!-- Shared shapes: the petal mark (rebuilt from the app icon as five petals) and the bloom edge. -->
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="lp-c" d="M200 86 C 176 128 158 168 160 212 C 162 256 184 288 200 300 C 216 288 238 256 240 212 C 242 168 224 128 200 86 Z"/>
+    <path id="lp-s" d="M200 300 C 142 300 101 252 102 162 C 158 170 196 214 200 300 Z"/>
+    <path id="lp-o" d="M198 300 C 126 302 74 256 72 168 C 128 166 180 206 198 300 Z"/>
+    <linearGradient id="lw-o" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#e28a72"/><stop offset="1" stop-color="#b9566a"/></linearGradient>
+    <linearGradient id="lw-c" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#ee9270"/><stop offset="1" stop-color="#cc6c77"/></linearGradient>
+    <linearGradient id="lw-l" x1="0" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#f6cabf"/><stop offset="0.5" stop-color="#e5836d"/><stop offset="1" stop-color="#d4707a"/></linearGradient>
+    <linearGradient id="lw-r" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#e57f6a"/><stop offset="1" stop-color="#a8495c"/></linearGradient>
+    <linearGradient id="lg-o" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#f7e2dc"/><stop offset="1" stop-color="#f3d6cf"/></linearGradient>
+    <linearGradient id="lg-c" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#f9e6e1"/><stop offset="1" stop-color="#f4d9d2"/></linearGradient>
+    <linearGradient id="lg-l" x1="0" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#fbece8"/><stop offset="0.5" stop-color="#f6ded8"/><stop offset="1" stop-color="#f3d6cf"/></linearGradient>
+    <linearGradient id="lg-r" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#f7e1db"/><stop offset="1" stop-color="#f2d3cb"/></linearGradient>
+    <path id="bloom-shape" d="M100.0 0.0 L99.9 3.5 L99.6 7.0 L99.0 10.4 L98.3 13.8 L97.3 17.2 L96.1 20.4 L94.7 23.6 L93.2 26.7 L91.5 29.7 L89.6 32.6 L87.6 35.4 L85.4 38.0 L83.1 40.5 L80.7 42.9 L78.3 45.2 L75.7 47.3 L73.1 49.3 L70.4 51.1 L69.4 54.3 L68.4 57.4 L67.2 60.5 L65.8 63.5 L64.3 66.5 L62.6 69.5 L60.7 72.4 L58.7 75.1 L56.5 77.8 L54.2 80.4 L51.7 82.8 L49.1 85.1 L46.4 87.2 L43.5 89.2 L40.5 90.9 L37.4 92.5 L34.2 93.9 L30.9 95.1 L27.6 96.1 L24.1 96.8 L20.7 97.4 L17.2 97.7 L13.7 97.8 L10.3 97.7 L6.8 97.4 L3.4 96.9 L0.0 96.2 L-3.3 95.3 L-6.6 94.2 L-9.8 93.0 L-12.9 91.6 L-15.9 90.1 L-18.8 88.4 L-21.6 86.6 L-24.3 84.7 L-26.9 82.7 L-30.1 82.8 L-33.4 82.8 L-36.8 82.6 L-40.1 82.2 L-43.4 81.7 L-46.7 81.0 L-50.1 80.1 L-53.3 79.1 L-56.5 77.8 L-59.7 76.4 L-62.8 74.8 L-65.7 73.0 L-68.6 71.1 L-71.4 68.9 L-74.0 66.6 L-76.5 64.2 L-78.8 61.5 L-80.9 58.8 L-82.9 55.9 L-84.6 52.9 L-86.2 49.8 L-87.6 46.6 L-88.8 43.3 L-89.8 40.0 L-90.5 36.6 L-91.1 33.2 L-91.5 29.7 L-91.7 26.3 L-91.7 22.9 L-91.5 19.4 L-91.1 16.1 L-90.6 12.7 L-89.9 9.4 L-89.0 6.2 L-88.1 3.1 L-87.0 0.0 L-88.1 -3.1 L-89.0 -6.2 L-89.9 -9.4 L-90.6 -12.7 L-91.1 -16.1 L-91.5 -19.4 L-91.7 -22.9 L-91.7 -26.3 L-91.5 -29.7 L-91.1 -33.2 L-90.5 -36.6 L-89.8 -40.0 L-88.8 -43.3 L-87.6 -46.6 L-86.2 -49.8 L-84.6 -52.9 L-82.9 -55.9 L-80.9 -58.8 L-78.8 -61.5 L-76.5 -64.2 L-74.0 -66.6 L-71.4 -68.9 L-68.6 -71.1 L-65.7 -73.0 L-62.8 -74.8 L-59.7 -76.4 L-56.5 -77.8 L-53.3 -79.1 L-50.1 -80.1 L-46.8 -81.0 L-43.4 -81.7 L-40.1 -82.2 L-36.8 -82.6 L-33.4 -82.8 L-30.1 -82.8 L-26.9 -82.7 L-24.3 -84.7 L-21.6 -86.6 L-18.8 -88.4 L-15.9 -90.1 L-12.9 -91.6 L-9.8 -93.0 L-6.6 -94.2 L-3.3 -95.3 L-0.0 -96.2 L3.4 -96.9 L6.8 -97.4 L10.3 -97.7 L13.7 -97.8 L17.2 -97.7 L20.7 -97.4 L24.1 -96.8 L27.6 -96.1 L30.9 -95.1 L34.2 -93.9 L37.4 -92.5 L40.5 -90.9 L43.5 -89.2 L46.4 -87.2 L49.1 -85.1 L51.7 -82.8 L54.2 -80.4 L56.5 -77.8 L58.7 -75.1 L60.7 -72.4 L62.6 -69.5 L64.3 -66.5 L65.8 -63.5 L67.2 -60.5 L68.4 -57.4 L69.4 -54.3 L70.4 -51.1 L73.1 -49.3 L75.7 -47.3 L78.3 -45.2 L80.7 -42.9 L83.1 -40.5 L85.4 -38.0 L87.6 -35.4 L89.6 -32.6 L91.5 -29.7 L93.2 -26.7 L94.7 -23.6 L96.1 -20.4 L97.3 -17.2 L98.3 -13.8 L99.0 -10.4 L99.6 -7.0 L99.9 -3.5Z"/>
+    <g id="flower" fill="#c5676e"><ellipse cx="0" cy="-27" rx="15" ry="21"/><ellipse cx="0" cy="-27" rx="15" ry="21" transform="rotate(72)"/><ellipse cx="0" cy="-27" rx="15" ry="21" transform="rotate(144)"/><ellipse cx="0" cy="-27" rx="15" ry="21" transform="rotate(216)"/><ellipse cx="0" cy="-27" rx="15" ry="21" transform="rotate(288)"/><circle r="14" fill="#fdf5f1"/></g>
+  </defs>
+</svg>
 
-<p>Tell Bloom how many days you can train and what you want to work on. It builds a six week plan around your answers, picks your starting weights, and shows you how to do every exercise. Then it keeps up with you: it swaps exercises when a machine is taken, trims the session when you are short on time, and adjusts next week based on how this week went.</p>
+<a class="skip" href="#main">Skip to content</a>
 
-<h2>Support</h2>
-<p>Questions, problems, or ideas? We read everything.</p>
-<ul>
-<li>Open an issue on <a href="https://github.com/WomensGym/bloom-site/issues">GitHub</a></li>
-<li>Or email <a href="mailto:gym@rosenpin.io">gym@rosenpin.io</a></li>
-</ul>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="./" aria-label="Bloom, home">
+      <svg class="lotus" viewBox="64 78 272 230" aria-hidden="true" focusable="false">
+        <g class="pt pt-ol"><use href="#lp-o" fill="url(#lw-o)"/></g>
+        <g class="pt pt-or"><use href="#lp-o" fill="url(#lw-o)" transform="translate(400 0) scale(-1 1)"/></g>
+        <g class="pt pt-c"><use href="#lp-c" fill="url(#lw-c)"/></g>
+        <g class="pt pt-ml"><use href="#lp-s" fill="url(#lw-l)"/></g>
+        <g class="pt pt-mr"><use href="#lp-s" fill="url(#lw-r)" transform="translate(400 0) scale(-1 1)"/></g>
+      </svg>
+      <span class="brand-word">Bloom</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="hide-sm" href="#features">How it works</a>
+      <a class="hide-sm" href="#pricing">Pricing</a>
+      <a href="#support">Support</a>
+      <a class="btn btn-sm" href="#get">Get the app</a>
+    </nav>
+  </div>
+</header>
 
-<h2>Privacy</h2>
-<p>Bloom signs you in anonymously. There is no name, no email address and no password. Read the full <a href="privacy.html">privacy policy</a>.</p>
+<main id="main">
 
-<footer>© 2026 Tomer Rosenfeld · <a href="privacy.html">Privacy Policy</a></footer>
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="glow glow-b" aria-hidden="true"></div>
+  <svg class="lotus hero-ghost" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+    <g class="pt pt-ol"><use href="#lp-o" fill="url(#lg-o)"/></g>
+    <g class="pt pt-or"><use href="#lp-o" fill="url(#lg-o)" transform="translate(400 0) scale(-1 1)"/></g>
+    <g class="pt pt-c"><use href="#lp-c" fill="url(#lg-c)"/></g>
+    <g class="pt pt-ml"><use href="#lp-s" fill="url(#lg-l)"/></g>
+    <g class="pt pt-mr"><use href="#lp-s" fill="url(#lg-r)" transform="translate(400 0) scale(-1 1)"/></g>
+  </svg>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Gym workout plans for women</p>
+      <h1 id="hero-title" class="display hero-title">
+        <span class="line" data-split="own">Your plan should adapt to you.</span>
+        <span class="line accent" data-split="spring">Not the other way around.</span>
+      </h1>
+      <p class="lede">The gym app made for women. It plans around your life, your energy and your period, then coaches you through every set.</p>
+      <div class="stores">
+        <a class="badge" href="https://apps.apple.com/app/id6795461055"><img src="assets/app-store-badge.svg" alt="Download on the App Store" width="150" height="50"></a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=io.rosenpin.womensgym"><img src="assets/google-play-badge.png" alt="Get it on Google Play" width="168" height="50"></a>
+      </div>
+      <p class="beta"><a href="https://testflight.apple.com/join/hk1EbWrk">Try the iPhone beta on TestFlight</a></p>
+    </div>
+    <div class="hero-stage">
+      <div class="device">
+        <div class="screen"><img src="assets/img/screen-today.webp" width="720" height="1565" fetchpriority="high" alt="Bloom's Today screen. Rest day. Friday is lower body, with Lower Body · Glute Focus ready to start."></div>
+      </div>
+      <div class="piece p-hero-a" aria-hidden="true"><div class="piece-in chip chip-cream"><svg class="flower" viewBox="-50 -50 100 100"><use href="#flower"/></svg>Made for you</div></div>
+      <div class="piece p-hero-b" aria-hidden="true"><div class="piece-in chip chip-green"><svg viewBox="0 0 24 24" class="tick"><path d="M4.5 12.5l4.5 4.5L19.5 7"/></svg>Felt just right</div></div>
+      <div class="piece p-hero-c" aria-hidden="true"><div class="piece-in card card-next"><span class="k">Up next</span><span class="v">Set 2 · 8 reps · 2 kg</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILM -->
+<section class="film field field-rose" id="film" aria-labelledby="film-title" data-bloom-origin="0.5 0.1">
+  <div class="bloom" aria-hidden="true"><svg class="bloom-rim" viewBox="-100 -100 200 200"><use href="#bloom-shape"/></svg><svg class="bloom-fill" viewBox="-100 -100 200 200"><use href="#bloom-shape"/></svg></div>
+  <div class="wrap film-in">
+    <h2 id="film-title" class="display film-title" data-split>See Bloom in motion.</h2>
+    <div class="film-frame" data-rise>
+      <a class="film-play" href="https://youtu.be/g8YY0nkYSRU" data-yt="g8YY0nkYSRU" aria-label="Play the Bloom video">
+        <img src="assets/img/video-poster.webp" width="1280" height="720" loading="lazy" alt="">
+        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 1: the plan -->
+<section class="chapter" id="features" aria-label="Your plan">
+  <div class="wrap chapter-grid" style="--beats: 2">
+
+    <div class="beat" style="--row: 1" data-beat="plan">
+      <div class="beat-text">
+        <h2 class="display" data-split>What do you want to work on?</h2>
+        <p class="why" data-rise>A plan built around it.</p>
+        <p class="body" data-rise>Tell Bloom your days and your goals. It builds six weeks around your answers.</p>
+        <ul class="goals" aria-label="Goals you can choose">
+          <li class="goal is-picked"><img src="assets/img/goal/glutes.webp" width="360" height="450" loading="lazy" alt=""><span>Glutes</span><svg class="goal-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></li>
+          <li class="goal"><img src="assets/img/goal/legs.webp" width="360" height="450" loading="lazy" alt=""><span>Legs</span></li>
+          <li class="goal"><img src="assets/img/goal/core.webp" width="360" height="450" loading="lazy" alt=""><span>Core</span></li>
+          <li class="goal"><img src="assets/img/goal/arms.webp" width="360" height="450" loading="lazy" alt=""><span>Arms</span></li>
+          <li class="goal"><img src="assets/img/goal/back.webp" width="360" height="450" loading="lazy" alt=""><span>Back</span></li>
+          <li class="goal"><img src="assets/img/goal/balanced.webp" width="360" height="450" loading="lazy" alt=""><span>Keep it balanced</span></li>
+        </ul>
+      </div>
+      <figure class="fig">
+        <div class="device"><div class="screen"><img src="assets/img/screen-plan.webp" width="720" height="1565" loading="lazy" alt="Bloom's plan reveal. Shape & Strength · Glute Focus, three gym days, with your six weeks mapped out and each session listed."></div></div>
+        <div class="piece p-build" aria-hidden="true"><div class="piece-in card card-build">
+          <span class="k">Building your plan</span>
+          <span class="bl"><svg viewBox="0 0 24 24" class="tick"><path d="M4.5 12.5l4.5 4.5L19.5 7"/></svg>Balancing your glute focus</span>
+          <span class="bl"><svg viewBox="0 0 24 24" class="tick"><path d="M4.5 12.5l4.5 4.5L19.5 7"/></svg>Choosing a comfortable start</span>
+        </div></div>
+      </figure>
+    </div>
+
+    <div class="beat" style="--row: 2" data-beat="weeks">
+      <div class="beat-text">
+        <h2 class="display" data-split>Stronger, week by week.</h2>
+        <p class="why" data-rise>Bloom remembers every set and plans your next step.</p>
+        <div class="weeks" role="img" aria-label="Your six weeks. Find your feet in week one, an easier week four, and a lighter finish in week six.">
+          <div class="wk-bars" aria-hidden="true"><i></i><i></i><i></i><i class="easy"></i><i></i><i class="light"></i></div>
+          <div class="wk-nums" aria-hidden="true"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span></div>
+          <div class="wk-caps" aria-hidden="true"><span>Find your feet</span><span>Easier week</span><span>Lighter finish</span></div>
+        </div>
+      </div>
+      <figure class="fig">
+        <div class="device"><div class="screen"><img src="assets/img/screen-today.webp" width="720" height="1565" loading="lazy" alt="Bloom's Today screen. Rest day. Friday is lower body, with Lower Body · Glute Focus ready to start."></div></div>
+        <div class="piece p-bl" aria-hidden="true"><div class="piece-in card card-next"><span class="k"><i class="dot"></i>Next up</span><span class="v">Upper Body · Tone &amp; Posture</span></div></div>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- YOUR MONTH -->
+<section class="month field field-lav" id="month" aria-labelledby="month-title" data-bloom-origin=".dial">
+  <div class="bloom" aria-hidden="true"><svg class="bloom-rim" viewBox="-100 -100 200 200"><use href="#bloom-shape"/></svg><svg class="bloom-fill" viewBox="-100 -100 200 200"><use href="#bloom-shape"/></svg></div>
+  <div class="wrap month-grid">
+    <div class="dial" aria-hidden="true">
+      <svg viewBox="-200 -200 400 400">
+        <g class="dial-ticks"><line x1="0.0" y1="-172.0" x2="0.0" y2="-188.0"/><line x1="38.3" y1="-167.7" x2="41.8" y2="-183.3"/><line x1="74.6" y1="-155.0" x2="81.6" y2="-169.4"/><line x1="107.2" y1="-134.5" x2="117.2" y2="-147.0"/><line x1="134.5" y1="-107.2" x2="147.0" y2="-117.2"/><line x1="155.0" y1="-74.6" x2="169.4" y2="-81.6"/><line x1="167.7" y1="-38.3" x2="183.3" y2="-41.8"/><line x1="172.0" y1="0.0" x2="188.0" y2="0.0"/><line x1="167.7" y1="38.3" x2="183.3" y2="41.8"/><line x1="155.0" y1="74.6" x2="169.4" y2="81.6"/><line x1="134.5" y1="107.2" x2="147.0" y2="117.2"/><line x1="107.2" y1="134.5" x2="117.2" y2="147.0"/><line x1="74.6" y1="155.0" x2="81.6" y2="169.4"/><line x1="38.3" y1="167.7" x2="41.8" y2="183.3"/><line x1="0.0" y1="172.0" x2="0.0" y2="188.0"/><line x1="-38.3" y1="167.7" x2="-41.8" y2="183.3"/><line x1="-74.6" y1="155.0" x2="-81.6" y2="169.4"/><line x1="-107.2" y1="134.5" x2="-117.2" y2="147.0"/><line x1="-134.5" y1="107.2" x2="-147.0" y2="117.2"/><line x1="-155.0" y1="74.6" x2="-169.4" y2="81.6"/><line x1="-167.7" y1="38.3" x2="-183.3" y2="41.8"/><line x1="-172.0" y1="0.0" x2="-188.0" y2="0.0"/><line x1="-167.7" y1="-38.3" x2="-183.3" y2="-41.8"/><line x1="-155.0" y1="-74.6" x2="-169.4" y2="-81.6"/><line x1="-134.5" y1="-107.2" x2="-147.0" y2="-117.2"/><line x1="-107.2" y1="-134.5" x2="-117.2" y2="-147.0"/><line x1="-74.6" y1="-155.0" x2="-81.6" y2="-169.4"/><line x1="-38.3" y1="-167.7" x2="-41.8" y2="-183.3"/></g>
+        <circle class="dial-track" r="150"/>
+        <circle class="dial-arc" r="150" pathLength="100" transform="rotate(-90)"/>
+      </svg>
+      <p class="dial-num"><span class="n">86</span><span class="pct">%</span></p>
+    </div>
+    <div class="month-copy">
+      <p class="eyebrow eyebrow-lav" data-rise>Your month</p>
+      <p class="stat-cap" data-rise><span class="sr-only">86% </span>of women who exercise report tiredness with their period.<sup><a href="#src-2" aria-label="Source 2">2</a></sup></p>
+      <h2 id="month-title" class="display" data-split>Your training should take that into account.</h2>
+      <p class="why why-lav" data-rise>Low day? Lighter session, one tap.</p>
+      <div class="opt-row is-on" aria-hidden="true">
+        <span class="opt-ic"><svg viewBox="0 0 24 24"><path d="M20 14.6A8 8 0 0 1 9.4 4a8 8 0 1 0 10.6 10.6z"/></svg></span>
+        <span class="opt-t"><b>My energy is low today</b><span>Same session shape, lighter from here.</span></span>
+        <span class="opt-ok"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>
+      </div>
+      <p class="honest" data-rise>Bloom doesn't change your plan by phase. It keeps your month in view, tells you what the research supports, and says so where it is still thin. Two optional questions, and it's not a period tracker.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EVERY MOVE -->
+<section class="moves" id="moves" aria-labelledby="moves-title">
+  <div class="wrap moves-grid">
+    <div class="moves-copy">
+      <h2 id="moves-title" class="display" data-split>Every move, shown.</h2>
+      <p class="why" data-rise>So you never second-guess your form.</p>
+      <p class="body" data-rise>Every exercise, start to finish, with setup and form cues in plain words.</p>
+    </div>
+    <div class="flip-cam">
+      <ul class="flipbook" aria-label="Exercises in Bloom">
+        <li><img src="assets/img/ex/barbell-squat-1.webp" width="400" height="450" loading="lazy" alt="Barbell squat"><img class="p2" src="assets/img/ex/barbell-squat-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+        <li><img src="assets/img/ex/cable-standing-glute-kickback-1.webp" width="400" height="450" loading="lazy" alt="Cable glute kickback"><img class="p2" src="assets/img/ex/cable-standing-glute-kickback-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+        <li><img src="assets/img/ex/dumbbell-bench-press-1.webp" width="400" height="450" loading="lazy" alt="Dumbbell bench press"><img class="p2" src="assets/img/ex/dumbbell-bench-press-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+        <li><img src="assets/img/ex/bodyweight-reverse-lunge-1.webp" width="400" height="450" loading="lazy" alt="Reverse lunge"><img class="p2" src="assets/img/ex/bodyweight-reverse-lunge-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+        <li><img src="assets/img/ex/machine-seated-cable-row-1.webp" width="400" height="450" loading="lazy" alt="Seated cable row"><img class="p2" src="assets/img/ex/machine-seated-cable-row-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+        <li><img src="assets/img/ex/barbell-hip-thrust-1.webp" width="400" height="450" loading="lazy" alt="Barbell hip thrust"><img class="p2" src="assets/img/ex/barbell-hip-thrust-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+        <li><img src="assets/img/ex/dead-bug-1.webp" width="400" height="450" loading="lazy" alt="Dead bug"><img class="p2" src="assets/img/ex/dead-bug-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+        <li><img src="assets/img/ex/dumbbell-romanian-deadlift-1.webp" width="400" height="450" loading="lazy" alt="Dumbbell Romanian deadlift"><img class="p2" src="assets/img/ex/dumbbell-romanian-deadlift-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+        <li><img src="assets/img/ex/bodyweight-push-up-1.webp" width="400" height="450" loading="lazy" alt="Push-up"><img class="p2" src="assets/img/ex/bodyweight-push-up-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+        <li><img src="assets/img/ex/machine-leg-press-1.webp" width="400" height="450" loading="lazy" alt="Leg press"><img class="p2" src="assets/img/ex/machine-leg-press-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+        <li><img src="assets/img/ex/dumbbell-incline-bench-press-1.webp" width="400" height="450" loading="lazy" alt="Incline dumbbell press"><img class="p2" src="assets/img/ex/dumbbell-incline-bench-press-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+        <li><img src="assets/img/ex/cable-pull-through-1.webp" width="400" height="450" loading="lazy" alt="Cable pull-through"><img class="p2" src="assets/img/ex/cable-pull-through-2.webp" width="400" height="450" loading="lazy" alt=""></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 2: in the gym -->
+<section class="chapter chapter-flip" id="in-the-gym" aria-label="In the gym">
+  <div class="wrap chapter-grid" style="--beats: 3">
+
+    <div class="beat" style="--row: 1" data-beat="weights">
+      <div class="beat-text">
+        <h2 class="display" data-split>Starting weights, found together.</h2>
+        <p class="why" data-rise>Start safe, with the right weight for you.</p>
+        <p class="body" data-rise>Bloom picks a safe first weight, then adjusts it with you over your first sessions.</p>
+      </div>
+      <figure class="fig">
+        <div class="device"><div class="screen"><img src="assets/img/screen-weights.webp" width="720" height="1565" loading="lazy" alt="Bloom finding a first weight for the Dumbbell Glute Bridge. Try this, 8 reps at 2 kg. Starting light is part of the plan."></div></div>
+        <div class="piece p-try" aria-hidden="true"><div class="piece-in card card-try">
+          <span class="try-top"><span class="k">Try this</span><span class="units"><i class="on">kg</i><i>lb</i></span></span>
+          <span class="try-v">8 reps · 2 kg</span>
+          <span class="try-s">Move slowly and keep the position steady</span>
+        </div></div>
+      </figure>
+    </div>
+
+    <div class="beat" style="--row: 2" data-beat="swap">
+      <div class="beat-text">
+        <h2 class="display" data-split>Machine taken? Swapped.</h2>
+        <p class="why" data-rise>Busy gym? Short on time? It adapts.</p>
+      </div>
+      <figure class="fig">
+        <div class="device"><div class="screen"><img src="assets/img/screen-swap.webp" width="720" height="1565" loading="lazy" alt="Bloom's swap sheet. Choose a swap, with Machine Glute Kickback and Hip Abduction Machine each a good match for this slot."></div></div>
+        <div class="piece p-swap" aria-hidden="true"><div class="piece-in card card-swap">
+          <span class="swap-img"><img src="assets/img/swap-hip-abduction.webp" width="480" height="540" loading="lazy" alt=""><span class="chip chip-green chip-sm">Good match for this slot</span></span>
+          <span class="k">Swapped in</span>
+          <span class="swap-v">Hip Abduction Machine</span>
+        </div></div>
+      </figure>
+    </div>
+
+    <div class="beat" style="--row: 3" data-beat="feel">
+      <div class="beat-text">
+        <h2 class="display" data-split>How did it feel?</h2>
+        <p class="why" data-rise><span class="ink">You know your body best.</span> Every answer shapes your next set.</p>
+      </div>
+      <figure class="fig">
+        <div class="device"><div class="screen"><img src="assets/img/screen-feel.webp" width="720" height="1565" loading="lazy" alt="Bloom asking how the set felt during rest, on a scale from very easy to too hard, with just right picked."></div></div>
+        <div class="piece p-feel" aria-hidden="true"><div class="piece-in card card-feel">
+          <span class="feel-k">Just right</span>
+          <span class="feel-row"><i class="feel-sel"></i><b>1</b><b>2</b><b class="on">3</b><b>4</b><b>5</b></span>
+          <span class="feel-labs"><span>Very easy</span><span>Too hard</span></span>
+          <span class="feel-next"><span class="k">Up next</span>Set 2 · Dumbbell Glute Bridge</span>
+        </div></div>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHO BUILT IT -->
+<section class="origin" aria-labelledby="women-title">
+  <div class="wrap">
+    <h2 id="women-title" class="display women">
+      <span class="w-more">More</span> <span class="w-women">women</span><br>
+      <span class="w-rest" data-split="own">are training than ever.</span><sup><a href="#src-1" aria-label="Source 1">1</a></sup>
+    </h2>
+    <div class="cred">
+      <p class="cred-lead" data-rise>Built by a certified trainer studying Human Movement Sciences at VU Amsterdam.</p>
+      <p class="body" data-rise>Shaped by interviews with the coaches who train women, and a survey of women who lift.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing" aria-labelledby="pricing-title">
+  <div class="wrap">
+    <h2 id="pricing-title" class="display" data-split>See your plan first. Then a free week.</h2>
+    <div class="plans">
+      <div class="plan plan-year" data-rise>
+        <p class="plan-tag">7 days free</p>
+        <h3>Yearly</h3>
+        <p class="price">$59.99<span>/year</span></p>
+        <p class="plan-note">Starts with a 7-day free trial.</p>
+      </div>
+      <div class="plan" data-rise>
+        <h3>Monthly</h3>
+        <p class="price">$12.99<span>/month</span></p>
+        <p class="plan-note">Month to month.</p>
+      </div>
+    </div>
+    <p class="fine" data-rise>Subscriptions through the App Store or Google Play.</p>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="get" aria-labelledby="close-title">
+  <div class="glow glow-c" aria-hidden="true"></div>
+  <div class="wrap close-in">
+    <h2 id="close-title" class="display close-title">
+      <span class="close-line" data-split="own">Walk into the gym with confidence, and</span>
+      <span class="close-logo">
+        <svg class="lotus" viewBox="64 78 272 230" aria-hidden="true" focusable="false">
+          <g class="pt pt-ol"><use href="#lp-o" fill="url(#lw-o)"/></g>
+          <g class="pt pt-or"><use href="#lp-o" fill="url(#lw-o)" transform="translate(400 0) scale(-1 1)"/></g>
+          <g class="pt pt-c"><use href="#lp-c" fill="url(#lw-c)"/></g>
+          <g class="pt pt-ml"><use href="#lp-s" fill="url(#lw-l)"/></g>
+          <g class="pt pt-mr"><use href="#lp-s" fill="url(#lw-r)" transform="translate(400 0) scale(-1 1)"/></g>
+        </svg><span class="close-word">Bloom</span>
+      </span>
+    </h2>
+    <div class="stores">
+      <a class="badge" href="https://apps.apple.com/app/id6795461055"><img src="assets/app-store-badge.svg" alt="Download on the App Store" width="150" height="50" loading="lazy"></a>
+      <a class="badge" href="https://play.google.com/store/apps/details?id=io.rosenpin.womensgym"><img src="assets/google-play-badge.png" alt="Get it on Google Play" width="168" height="50" loading="lazy"></a>
+    </div>
+    <p class="beta"><a href="https://testflight.apple.com/join/hk1EbWrk">Try the iPhone beta on TestFlight</a></p>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="support" id="support" aria-labelledby="support-title">
+  <div class="wrap support-grid">
+    <div>
+      <h2 id="support-title">Support</h2>
+      <p>Questions, problems, or ideas? We read everything.</p>
+      <ul class="links">
+        <li>Email <a href="mailto:gym@rosenpin.io">gym@rosenpin.io</a></li>
+        <li>Or open an issue on <a href="https://github.com/WomensGym/bloom-site/issues">GitHub</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Privacy</h2>
+      <p>Bloom signs you in anonymously. There is no name, no email address and no password. Read the full <a href="privacy.html">privacy policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <ol class="sources" id="sources" aria-label="Sources">
+      <li id="src-1">Women in personal training up 15.9% in 2024. Health &amp; Fitness Association.</li>
+      <li id="src-2">86% of 6,812 exercising women. Bruinvels et al., British Journal of Sports Medicine, 2021.</li>
+    </ol>
+    <p class="foot-line">© 2026 Tomer Rosenfeld · <a href="privacy.html">Privacy Policy</a> · <a href="#support">Support</a></p>
+  </div>
+</footer>
 </body>
 </html>
