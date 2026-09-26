@@ -127,7 +127,7 @@ h2.display { font-size: clamp(2.35rem, 1.35rem + 3.3vw, 4.4rem); }
 .glow-c { width: 1200px; height: 1200px; left: 50%; top: 50%; margin: -600px 0 0 -600px; background: radial-gradient(circle, rgba(243, 214, 207, 0.85), rgba(243, 214, 207, 0) 62%); }
 
 /* ---------- phone ---------- */
-.device { position: relative; width: var(--pw); aspect-ratio: 720 / 1565; }
+.device { position: relative; width: var(--pw); aspect-ratio: 720 / 1636; }
 .screen {
   position: absolute; inset: 0; overflow: hidden;
   border-radius: calc(var(--pw) * 0.145);
@@ -207,7 +207,7 @@ h2.display { font-size: clamp(2.35rem, 1.35rem + 3.3vw, 4.4rem); }
 .p-hero-c { left: -12%; bottom: 12%; }
 @media (min-width: 960px) {
   .hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); min-height: calc(100svh - var(--nav-h) - 90px); }
-  .hero-stage { --pw: min(300px, 21vw, calc((100svh - 190px) / 2.2)); }
+  .hero-stage { --pw: min(300px, 21vw, calc((100svh - 190px) / 2.3)); }
   .hero-ghost { right: -8vw; top: -6%; width: min(1100px, 76vw); }
   .p-hero-a { left: -30%; top: 12%; }
   .p-hero-b { right: -24%; top: 31%; }
@@ -278,7 +278,7 @@ h2.display { font-size: clamp(2.35rem, 1.35rem + 3.3vw, 4.4rem); }
 .wk-caps { display: flex; justify-content: space-between; gap: 8px; margin-top: 4px; font-weight: 650; font-size: 0.95rem; }
 
 @media (min-width: 960px) {
-  .chapter { --pw: min(318px, 25vw, calc((100svh - 150px) / 2.2)); --fh: calc(var(--pw) * 2.1736); }
+  .chapter { --pw: min(318px, 25vw, calc((100svh - 150px) / 2.3)); --fh: calc(var(--pw) * 2.2722); }
   .fig { --pw: inherit; }
   .beat { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); align-items: center; gap: clamp(40px, 6vw, 96px); }
   .chapter-flip .beat { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); }
